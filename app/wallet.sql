@@ -1,0 +1,1 @@
+select addmoney.Amount from addmoney INNER JOIN users ON addmoney.Cardname=users.Fname;
