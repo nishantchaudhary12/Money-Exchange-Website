@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Send Money </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+.regbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.regbtn:hover {
+  opacity: 1;
+}
+
+
+a {
+  color: dodgerblue;
+}
+
+
+</style>
+</head>
+<body>
+
+<form action="/searchuser" method="POST">
+  <div class="container">
+    <h1>Send Money</h1>
+    <hr>
+
+    <label for="username"><b> Search Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <hr>
+
+
+    <button type="submit" class="regbtn">Search</button>
+    <button type="back" class="regbtn" onclick="window.location.href = 'wallet';" >Back</button>
+    <button type="logout" class="regbtn" onclick="window.location.href = 'logout';">Logout</button>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}  {{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+</body>
+</html>

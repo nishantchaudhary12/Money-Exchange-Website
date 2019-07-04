@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Users List </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+.regbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.regbtn:hover {
+  opacity: 1;
+}
+
+
+a {
+  color: dodgerblue;
+}
+
+
+</style>
+</head>
+<body>
+
+<form action="/updateProfileUser" method="post" name="user_list">
+  <div class="container">
+    <h1>List of all the users (Click on the username to view details)</h1>
+    {% for item in data %}
+    <ul>
+      <input type="radio" name="user_list" value="{{item}}"> {{item}} </input>
+    </ul>
+    {% endfor %}
+    <input type="submit">
+  </div>
+</form>
+<button type="back" class="regbtn" onclick="window.location.href = 'adminHome';" >Back</button>
+<button type="logout" class="regbtn" onclick="window.location.href = 'logout';">Logout</button>
+</body>
+
+</html>

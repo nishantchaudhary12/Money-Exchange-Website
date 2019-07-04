@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Results </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+.regbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.regbtn:hover {
+  opacity: 1;
+}
+
+
+a {
+  color: dodgerblue;
+}
+
+
+</style>
+</head>
+<body>
+
+<form action="/moneysend" method = "POST" name="my_list">
+  <div class="container">
+    <h1>Search Result</h1>
+    <label for = "First"><b>First Name</b></label>
+    <input type="text" name="my_list" value="{{data[0]}}" readonly> </input>
+    <label for = "First"><b>Last Name</b></label>
+    <input type="text" name="my_list" value="{{data[1]}}" readonly>  </input>
+    <label for = "First"><b>Sender</b></label>
+    <input type="text" name="sender">  </input>
+
+    <br><br><br>
+    <label for="amount"><b> Enter the amount you want to transfer ($)</b></label>
+    <input type="text" placeholder="0" name="amount" required>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br><br>
+
+    <button type="submit" class="regbtn">Pay</button>
+    <button type="back" class="regbtn" onclick="window.location.href = 'sendmoney';" >Back</button>
+    <button type="logout" class="regbtn" onclick="window.location.href = 'logout';">Logout</button>
+    
+  </div>
+  
+      
+</body>
+</html>

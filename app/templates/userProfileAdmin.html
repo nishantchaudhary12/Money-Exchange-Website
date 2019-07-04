@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> User Profile </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+.regbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.regbtn:hover {
+  opacity: 1;
+}
+
+
+a {
+  color: dodgerblue;
+}
+
+
+</style>
+</head>
+<body>
+
+<form action="/updateProfileUserAdmin" method="POST">
+  <div class="container">
+    <h1>User Profile</h1>
+    <hr>
+
+    <label for="First"><b> First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="First" value="{{data[0]}}" required>
+
+    <label for="Last"><b> Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="Last" value="{{data[1]}}" required>
+
+    <label for="Gender"><b> Gender </b></label><br>
+    <input type="radio" name="gender" value="male" {% if data[2].lower() == 'male'%} checked {% endif %}> Male<br>
+    <input type="radio" name="gender" value="female" {% if data[2].lower() == 'female'%} checked {% endif %}> Female<br>
+    <input type="radio" name="gender" value="other" {% if data[2].lower() == 'other'%} checked {% endif %}> Other <br><br>
+
+    <label for="Age"><b> Age </b></label>
+    <input type="Number" placeholder="Age" name="Age" value="{{data[3]}}" required> &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label for="phone"><b>Phone</b></label>
+    <input type="tel" placeholder="Enter Phone Number" name="phone" value="{{data[4]}}"> <br><br>
+
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" value="{{data[5]}}" required>
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" value="{{data[6]}}" name="username" readonly>
+
+
+    <hr>
+  </form>
+
+
+    <button type="submit" class="regbtn">Update Profile</button>
+    <form action="/blockuser" method="POST" name="user_list">
+    
+    <button type="back" class="regbtn">Back</button>
+    <button type="logout" class="regbtn" onclick="window.location.href = 'logout';">Logout</button>
+  </div>
+
+
+</body>
+</html>
